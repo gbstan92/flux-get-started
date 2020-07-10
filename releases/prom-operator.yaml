@@ -43,11 +43,9 @@ spec:
     prometheus:
       additionalServiceMonitors:
         - name: "flux-monitor"
-          selector:
-            app: flux
           namespaceSelector:
             matchNames:
-              - admin
+              - flux
           endpoints:
             - targetPort: 3030
           path: /metrics
