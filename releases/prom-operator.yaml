@@ -1,0 +1,19 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: prom-operator
+  namespace: monitoring
+  annotations:
+    flux.weave.works/automated: "false"
+    flux.weave.works/ignore: "false"
+spec:
+  releaseName: prom-operator
+  forceUpgrade: true
+  rollback:
+    enable: true
+    retry: true
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: prometheus-operator
+    version: 8.3.0
